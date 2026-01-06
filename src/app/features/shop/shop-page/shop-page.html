@@ -1,0 +1,27 @@
+<div class="pt-32 px-8 min-h-screen bg-white">
+      <h1 class="text-6xl font-bold uppercase tracking-tighter mb-12">Shop</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        @for (item of content.shopItems(); track item.id) {
+          <div class="group cursor-pointer">
+            <div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+              <img [src]="item.image" 
+                   [alt]="item.name" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-lg font-bold uppercase tracking-tight">{{ item.name }}</h3>
+                <p class="text-gray-500 text-sm">Limited Edition</p>
+              </div>
+              <span class="font-medium">{{ item.price | currency:'EUR':'symbol':'1.2-2' }}</span>
+            </div>
+            
+            <button class="mt-4 w-full py-3 border border-black uppercase text-xs font-bold hover:bg-black hover:text-white transition-colors">
+              Add to cart
+            </button>
+          </div>
+        }
+      </div>
+    </div>

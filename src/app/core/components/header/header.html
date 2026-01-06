@@ -1,0 +1,12 @@
+    <nav class="fixed top-0 left-0 w-full z-50 px-8 py-6 flex justify-between items-center bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <div class="text-2xl font-bold tracking-tighter uppercase cursor-pointer" routerLink="/">
+        {{ content.brandName() }}
+      </div>
+      <div class="flex gap-8">
+        @for (link of content.navLinks(); track link.label) {
+          <a [routerLink]="link.path" class="text-sm font-medium hover:opacity-50 transition-opacity uppercase text-black">
+            {{ link.label }}
+          </a>
+        }
+      </div>
+    </nav>
